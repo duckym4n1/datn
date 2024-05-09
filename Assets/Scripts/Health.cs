@@ -16,7 +16,8 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
-        Finish scenes = GetComponent<Finish>();
+
+        Finish scenes = FindObjectOfType<Finish>().GetComponent<Finish>();
         if(scenes.lvl != 0)
         {
             level = PlayerPrefs.GetInt("level", 0);
@@ -31,7 +32,7 @@ public class Health : MonoBehaviour
             maxHealth = 100;
             level = 0;
             exp = 0;
-            maxExp = 0;
+            maxExp = 100;
         }    
         fullhealth = health;
         baseExp = this.exp;
@@ -50,7 +51,7 @@ public class Health : MonoBehaviour
         {
             throw new System.ArgumentOutOfRangeException("Cannot have negative damage");
         }
-        this.health -= amount;
+        this.health -= fullhealth * (100-amount)/100;
 
         if(health <= 0)
         {
