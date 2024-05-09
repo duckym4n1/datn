@@ -7,9 +7,11 @@ public class Finish : MonoBehaviour
 {
     private AudioSource finishSoundEffect;
     private bool levelComplete = false;
+    public int lvl;
     // Start is called before the first frame update
     void Start()
     {
+        this.lvl = PlayerPrefs.GetInt("scene", 0);
         finishSoundEffect= GetComponent<AudioSource>();
     }
 
@@ -17,6 +19,8 @@ public class Finish : MonoBehaviour
     {
         if(collision.gameObject.name== "Player" && !levelComplete)
         {
+            lvl++;
+            PlayerPrefs.SetInt("scene", lvl);
             finishSoundEffect.Play();
             levelComplete = true;
             Invoke("CompleteLevel", 2f);

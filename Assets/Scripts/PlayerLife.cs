@@ -17,15 +17,17 @@ public class PlayerLife : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Trap"))
         {
-            Die();
+            Health health = this.GetComponent<Health>();
+            health.Damage(50);
         }
         if(transform.position.y < -10f)
         {
-            Die();
+            Health health = this.GetComponent<Health>();
+            health.Damage(100);
         }    
     }
 
-    private void Die()
+    public void Die()
     {
         deathSoundEffect.Play();
         rb.bodyType = RigidbodyType2D.Static;   

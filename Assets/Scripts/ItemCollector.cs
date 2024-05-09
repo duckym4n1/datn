@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    private int cherries =0;
+    //private int cherries =0;
     [SerializeField] private Text cherriesText;
     [SerializeField] private AudioSource collectSoundEffect;
     private void OnTriggerEnter2D(Collider2D collision)
@@ -14,8 +14,9 @@ public class NewBehaviourScript : MonoBehaviour
         {
             collectSoundEffect.Play();
             Destroy(collision.gameObject);
-            cherries++;
-            cherriesText.text = "Cherries: " + cherries;   
+            Health health = this.GetComponent<Health>();
+            health.Healing(30);
+            health.Experience(40);
         }
     }
 }
