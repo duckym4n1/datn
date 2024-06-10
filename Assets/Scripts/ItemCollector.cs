@@ -8,6 +8,11 @@ public class NewBehaviourScript : MonoBehaviour
     //private int cherries =0;
     [SerializeField] private Text cherriesText;
     [SerializeField] private AudioSource collectSoundEffect;
+    private void Update()
+    {
+        Health health = this.GetComponent<Health>();
+        //cherriesText.text = health.health.ToString() + "/" + health.maxHealth.ToString();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Cherry"))

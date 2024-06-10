@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class A : MonoBehaviour
 {
-    private int damage = 3;
+    private int damage = 0;
+    private void Start()
+    {
+        damage = (int)Random.Range(25f, 38f);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

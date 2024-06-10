@@ -8,6 +8,8 @@ public class PlayerLife : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     [SerializeField] private AudioSource deathSoundEffect;
+    public Animation animationData;
+    public Vector2 knockBack;
     private void Start()
     {
         anim= GetComponent<Animator>();
@@ -19,6 +21,18 @@ public class PlayerLife : MonoBehaviour
         {
             Health health = this.GetComponent<Health>();
             health.Damage(50);
+            anim.SetTrigger("hit");
+            //Vector2 knock_Back = transform.position - collision.transform.position;
+            rb.AddForce(knockBack,ForceMode2D.Impulse);
+            if(health.health > 0)
+            {
+                anim.SetTrigger("notDeath");
+            }
+            else
+            {
+                anim.SetTrigger("death");
+                Die();
+            }
         }
         if(transform.position.y < -10f)
         {

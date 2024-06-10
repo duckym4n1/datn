@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8657988471946779919}
   - component: {fileID: 455250677513188637}
   - component: {fileID: 341331164008197333}
-  - component: {fileID: 1083650438000683954}
   - component: {fileID: 2095771490476317596}
   m_Layer: 0
   m_Name: Finish
@@ -229,18 +228,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1083650438000683954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4254653659711353909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7b072c9b1eb871428b302e72f26f033, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &2095771490476317596
 Animator:
   serializedVersion: 5
